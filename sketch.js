@@ -20,18 +20,18 @@ function preload(){
 function setup() {
   background(220)
   
-  //create a trex sprite
+  //crear sprite de Trex
   trex = createSprite(50,380,20,50);
   trex.addAnimation("running", trex_running);
   trex.scale = 0.5;
   
-  //create a ground sprite
+  //crear sprite de suelo
   ground = createSprite(200,380,400,20);
   ground.addImage("ground",groundImage);
   ground.x = ground.width /2;
   ground.velocityX = -4;
   
-  //creating invisible ground
+  //crear sprite de suelo invisible
 invisibleGround = createSprite(200,390,400,10);
  invisibleGround.visible = false;
   
@@ -39,12 +39,12 @@ invisibleGround = createSprite(200,390,400,10);
 }
 
 function draw() {
-  //set background color
+  //establecer color de fondo
   background(220);
   
   score = score + Math.round(getFrameRate()/60);
   
-  // jump when the space key is pressed
+  //hacer que el Trex salte al presionar la barra espaciadora
   if(keyDown("space")&& trex.y >= 362) {
     trex.velocityY = -10;
   }
@@ -55,7 +55,7 @@ function draw() {
     ground.x = ground.width/2;
   }
   
-  //stop trex from falling down
+  //evitar que el Trex caiga
   trex.collide(ground);
   
   drawSprites();
